@@ -12,6 +12,7 @@ import 'package:path/path.dart' as Path;
 part 'add_apunte_event.dart';
 part 'add_apunte_state.dart';
 
+
 class AddApunteBloc extends Bloc<AddApunteEvent, AddApunteState> {
   File _chosenImage;
   String _url;
@@ -37,6 +38,8 @@ class AddApunteBloc extends Bloc<AddApunteEvent, AddApunteState> {
       } else {
         yield UploadedFileErrorState(errorMessage: "No se pudo cargar la imagen.");
       }
+    } else if (event is InitEvent) {
+      yield AddApunteInitial();
     }
   }
 
@@ -68,7 +71,7 @@ class AddApunteBloc extends Bloc<AddApunteEvent, AddApunteState> {
         print("Link>>>>> $imageUrl");
       });
 
-      reference.getDownloadURL().then((fileURL) {
+      await reference.getDownloadURL().then((fileURL) {
         print("$fileURL");
         _url = fileURL;
       });

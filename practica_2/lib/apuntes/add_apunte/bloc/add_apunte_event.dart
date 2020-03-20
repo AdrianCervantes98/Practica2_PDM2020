@@ -4,20 +4,18 @@ abstract class AddApunteEvent extends Equatable {
   const AddApunteEvent();
 }
 
-class ChooseImageEvent extends AddApunteEvent {
-  final File image;
-
-  ChooseImageEvent({
-    @required this.image
-  });
-
+class InitEvent extends AddApunteEvent {
   @override
-  List<Object> get props => [image];
+  List<Object> get props => [];
+}
+
+class ChooseImageEvent extends AddApunteEvent {
+  @override
+  List<Object> get props => [];
 }
 
 class UploadFileEvent extends AddApunteEvent {
-  final String image;
-
+  final File image;
   UploadFileEvent({
     @required this.image,
   });

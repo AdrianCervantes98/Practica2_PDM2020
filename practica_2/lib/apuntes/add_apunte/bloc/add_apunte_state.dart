@@ -30,7 +30,7 @@ class GetImageErrorState extends AddApunteState {
 }
 
 class UploadedFileState extends AddApunteState {
-  final String image;
+  final dynamic image;
 
   UploadedFileState({
     @required this.image

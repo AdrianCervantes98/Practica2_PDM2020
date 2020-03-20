@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
       ),
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
-          if (state is AuthenticatedSuccessfully) return LoginPage();
+          if (state is AuthenticatedSuccessfully) return HomePage();
           if (state is UnAuthenticated) return LoginPage();
           return Scaffold(body: Center(child: CircularProgressIndicator()));
         },
